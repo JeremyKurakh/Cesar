@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Шифр Цезаря</title>
+	<link href="css/index.css" rel="stylesheet">
+</head>
+
+<body>
+	<header>
+		<p id="logo" class="text">Шифр Цезаря</p>
+	</header>
+	<main>
+        <div id="article">
+            <article id="clearToDirt">
+                <p class="text">Введіть крок</p>
+                <input type="text" id="offset">
+                <br>
+                <br>
+                <p class="text">Введіть не шифрований текст</p>
+                <textarea id="inputClearText"></textarea>
+                <p class="text">шифрований текст</p>
+                <textarea id="outputClearToDirtText"></textarea>
+            </article>
+            <article id="dirtToClear">
+                <p class="text">Введіть крок</p>
+                <input type="text" id="offset">
+                <br>
+                <br>
+                <p class="text">Введіть шифрований текст</p>
+                <textarea  id="inputDirtText"></textarea>
+                <p class="text">Дешифрований текст</p>
+                <textarea id="outputDirtToClearText"></textarea>
+            </article>
+        </div>
+	</main>
+	<script src="js/index.js"></script>
+</body>
+
+</html>

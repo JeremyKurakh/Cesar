@@ -2,11 +2,14 @@
 
 
 #article{
-    display: flex;
-    justify-content: space-around;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 50px;
 }
 body{
     background-color: black;
+    margin: auto;
+    max-width: 920px;
 }
 .text{
     color: white;
@@ -15,12 +18,19 @@ body{
     display: flex;
     justify-content: center;
 }
+.maintext{
+    color: white;
+    font-family: 'Pangolin', cursive;
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+}
 input[type="text"] {
     font-size:20px;
     color: white;
     background-color: black;
     border: 2px solid white;
-    width: 300px;
+    width: 100%;
 }
 #logo{
     display: flex;
@@ -34,13 +44,22 @@ input[type="text"] {
     background-color: black;
     border: 2px solid white;
     height: 300px;
-    width: 300px;
+    width: 100%;
 }
 #outputClearToDirtText, #outputDirtToClearText{
     height: 300px;
-    width: 300px;
+    width: 100%;
     font-size: 20px;
     color: white;
     background-color: black;
     border: 2px solid white;
+}
+@media (min-width: 320px) and (max-width: 600px) {
+    #article{
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+}
+textarea{
+    resize: none;
 }

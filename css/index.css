@@ -65,7 +65,7 @@ input[type="text"] {
 textarea{
     resize: none;
 }
-#aboutCesar{
+#aboutCesar, #freqAnalysis{
     color: white;
     font-size: 20px;
     font-family: 'Pangolin', cursive;

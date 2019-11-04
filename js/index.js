@@ -17,6 +17,10 @@ document.getElementById('inputClearText').oninput = function(){
 	}
 	document.getElementById('outputClearToDirtText').innerHTML = out;
 
+    function getKeyByValue(object, value) {
+        return Object.keys(object).find(key => object[key] === value);
+    }
+
     var FrequencyClearText = {};
     for (var i=0; i<str.length;i++) {
         var characterClearText = str.charAt(i);
@@ -26,6 +30,12 @@ document.getElementById('inputClearText').oninput = function(){
            FrequencyClearText[characterClearText] = 1;
         }
     }
+
+    var numbersClear = Object.values(FrequencyClearText);
+    console.log(numbersClear)
+    var maxClearFreqSumb = getKeyByValue(FrequencyClearText,Math.max(...numbersClear));
+    var maxClearFreqSymbCode = maxClearFreqSumb.charCodeAt();
+
     var FrequencyDirtText = {};
     for (var i=0; i<out.length;i++) {
         var characterDirtText = out.charAt(i);
@@ -36,6 +46,12 @@ document.getElementById('inputClearText').oninput = function(){
         }
     }
 }
+    var numbersDirt = Object.values(FrequencyDirtText);
+    console.log(numbersDirt)
+    var maxDirtFreqSumb = getKeyByValue(FrequencyDirtText,Math.max(...numbersDirt));
+    var maxDirtFreqSymbCode = maxDirtFreqSumb.charCodeAt();
+    var ExpectedKey = Math.abs(maxClearFreqSymbCode - maxDirtFreqSymbCode);
+    console.log(ExpectedKey);
 
 document.getElementById('inputDirtText').oninput = function(){
 	let key = document.getElementById('key').value;
@@ -56,21 +72,4 @@ document.getElementById('inputDirtText').oninput = function(){
 	document.getElementById('outputDirtToClearText').innerHTML = out;
 }
 
-/*
-var ctx = document.getElementById('myChart').getContext('2d');
-var chart = new Chart(ctx, {
-    // The type of chart we want to create
-    type: 'bar',
-    // The data for our dataset
-    data: {
-        labels: characterClearText,
-        datasets: [{
-            label: 'Частотний аналіз',
-            backgroundColor: 'rgb(255, 255, 255)',
-            borderColor: 'rgb(255, 255, 255)',
-            data: FrequencyClearText[characterClearText]
-        }]
-    },
-    // Configuration options go here
-    options: {}
-});*/
+

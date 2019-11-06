@@ -8,7 +8,7 @@ document.getElementById('inputClearText').oninput = function(){
 	let help = document.getElementById('help');
 	let str = this.value;
 	//console.log(str.charCodeAt(0));
-	let out = '';
+	var out = '';
 	for (let i=0; i< str.length; i++){
 		let code = str.charCodeAt(i);
 		code = code + key;
@@ -16,6 +16,7 @@ document.getElementById('inputClearText').oninput = function(){
 		out += String.fromCharCode(code);
 	}
 	document.getElementById('outputClearToDirtText').innerHTML = out;
+
 
     function getKeyByValue(object, value) {
         return Object.keys(object).find(key => object[key] === value);
@@ -31,10 +32,15 @@ document.getElementById('inputClearText').oninput = function(){
         }
     }
 
+    console.log(FrequencyClearText)
+    document.getElementById('outputClerFreqAnalysis').innerHTML = FrequencyClearText;
     var numbersClear = Object.values(FrequencyClearText);
     console.log(numbersClear)
+    console.log(Math.max(...numbersClear));
+    console.log(getKeyByValue(FrequencyClearText,Math.max(...numbersClear)));
     var maxClearFreqSumb = getKeyByValue(FrequencyClearText,Math.max(...numbersClear));
     var maxClearFreqSymbCode = maxClearFreqSumb.charCodeAt();
+    console.log(maxClearFreqSymbCode);
 
     var FrequencyDirtText = {};
     for (var i=0; i<out.length;i++) {
@@ -45,13 +51,19 @@ document.getElementById('inputClearText').oninput = function(){
            FrequencyDirtText[characterDirtText] = 1;
         }
     }
-}
+    console.log(FrequencyDirtText)
+    document.getElementById('outputDirtFreqAnalysis').innerHTML = FrequencyDirtText;
     var numbersDirt = Object.values(FrequencyDirtText);
     console.log(numbersDirt)
+    console.log(Math.max(...numbersDirt));
+    console.log(getKeyByValue(FrequencyDirtText,Math.max(...numbersDirt)));
     var maxDirtFreqSumb = getKeyByValue(FrequencyDirtText,Math.max(...numbersDirt));
     var maxDirtFreqSymbCode = maxDirtFreqSumb.charCodeAt();
-    var ExpectedKey = Math.abs(maxClearFreqSymbCode - maxDirtFreqSymbCode);
-    console.log(ExpectedKey);
+    console.log(maxDirtFreqSymbCode);
+    var expectedKey = Math.abs(maxDirtFreqSymbCode-maxClearFreqSymbCode);
+    console.log(expectedKey);
+    document.getElementById('expectedKey').innerHTML = expectedKey;
+}
 
 document.getElementById('inputDirtText').oninput = function(){
 	let key = document.getElementById('key').value;

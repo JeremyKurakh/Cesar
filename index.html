@@ -55,7 +55,7 @@
         <div id="article">
             <article id="clearToDirt">
                 <p class="maintext">Шифратор</p>
-                <p class="text">Введіть ключ(будь яке число)</p>
+                <p class="text">Введіть ключ</p>
                 <input type="text" id="offset">
                 <br>
                 <br>
@@ -66,7 +66,7 @@
             </article>
             <article id="dirtToClear">
             <p class="maintext">Дешифратор</p>
-                <p class="text">Введіть ключ(будь яке число)</p>
+                <p class="text">Введіть ключ</p>
                 <input type="text" id="key">
                 <br>
                 <br>
@@ -85,19 +85,13 @@
            При цьому у випадку моноалфавітного шифрування якщо в шифротексті буде символ з аналогічною ймовірністю появи, то можна припустити, що він і є зазначеною зашифрованою буквою.
            Аналогічні міркування застосовуються до біграм (двобуквених послідовностей), триграм і т.д. у разі поліалфавітного шифрів.
         </p>
-        <p id="logo" class="text">Приклад частотного аналізу</p>
-        <p class="maintext">Не шифрований текс</p>
-        <p id="freqAnalysisClearTexr">
-            ананас барабан вишня гриб дерево експансія єнот жук заєць
-            кит іграшка їжак йога корова лимон морква ноги очі півень рак
-            сонце телефон ураган фара хліб цукерка черепаха шишка щітка місяць юрта яблуко
-        </p>
-        <p class="maintext">Діаграмма для не шифрованого тексту</p>
-        <p class="maintext">Шифрований текс</p>
-        <p id="freqAnalysisDirtTexr"></p>
-        <p class="maintext">Діаграмма для шифрованого тексту</p>
+        <p class="maintext">Частотний аналіз для не шифрованого тексту</p>
+        <textarea id="outputClerFreqAnalysis"></textarea>
+        <p class="maintext">Частотний аналіз для шифрованого тексту</p>
+        <textarea id="outputDirtFreqAnalysis"></textarea>
+        <p class="maintext">Очікуваний ключ</p>
+        <textarea id="expectedKey"></textarea>
         </div>
-        <canvas id="myChart"></canvas>
 	</main>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 	<script src="js/index.js"></script>

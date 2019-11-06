@@ -33,7 +33,9 @@ document.getElementById('inputClearText').oninput = function(){
     }
 
     console.log(FrequencyClearText)
-    document.getElementById('outputClerFreqAnalysis').innerHTML = FrequencyClearText;
+    for (var value in FrequencyClearText){
+        outputClerFreqAnalysis.innerHTML += value + ' : ' + FrequencyClearText[value] + ',';
+    }
     var numbersClear = Object.values(FrequencyClearText);
     console.log(numbersClear)
     console.log(Math.max(...numbersClear));
@@ -52,7 +54,9 @@ document.getElementById('inputClearText').oninput = function(){
         }
     }
     console.log(FrequencyDirtText)
-    document.getElementById('outputDirtFreqAnalysis').innerHTML = FrequencyDirtText;
+    for (var value in FrequencyDirtText){
+        outputDirtFreqAnalysis.innerHTML += value + ' : ' + FrequencyDirtText[value] + ',';
+    }
     var numbersDirt = Object.values(FrequencyDirtText);
     console.log(numbersDirt)
     console.log(Math.max(...numbersDirt));
